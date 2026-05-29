@@ -4,10 +4,10 @@
 **V0.3.0 MVP**
 **Built By: Apex Multi Tools**
 ---
----
-** - # PLEASE NOTE WE ARE STIL IN HEAVY Development # - **
----
 
+** - # PLEASE NOTE WE ARE STIL IN HEAVY Development # - **
+
+-
 
 **Apex Multi Tools: Apex Virtual Betting Platform**
 
