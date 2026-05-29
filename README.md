@@ -11,33 +11,31 @@ This PWA App is the gateway to our brand new one of a kind,
 Virtual Currency betting platform for Esport only.
 We are still in Beta Development, Beta is limited to only Apex Legends Esports,
 and all its Tournaments! 
-Future Version will offer betting on ALL Major Esports! Key Properties
-
-Odds are dynamic — they shift as more money flows in up until the event starts.
-No fixed odds — unlike traditional bookmaking where odds are set in advance.
+Future Version will offer betting on ALL Major Esports!
 
 Beta will be open for Apex Pro League & Upcomming EWC Lan.
 
 Apex Betting has all the same functions as major "real" betting sites, Like Live realtime odds, 
 Player & Teams data, Fast payout & Discussion forum where you can argue with other nerds about what the best team is.
-Also Live Leaderboard top 10 for the best of the best! All this is done with our own eko system built on our own virtual Currency,
+Also Live Leaderboard top 10 for the best of the best! All this is done with our own eko system built on our own virtual Currency, ApeXCoins.
 
 **ApeXCoins**
 A virtual Currency that lives within a Redis database. All transactions are handeled by this Redis instance.
-All users get 300 ApeXCoins credited to there account every 24H to keep the economy flowing. 
+All users get 300 ApeXCoins credited to there account every 24H to keep the economy blomming. 
 
-# Parimutuel Betting
-
-Our betting process are abit different then "Standard" Betting with fixed odds.
+# Parimutuel Betting With ApeXCoins
+Our betting process are abit different then "Standard" Betting with fixed odds and real money.
+Odds are dynamic — they shift as more money flows in up until the event starts.
+No fixed odds — unlike traditional bookmaking where odds are set in advance.
 ````
 Parimutuel betting is a system where all bets on a game are pooled together, 
 and winners share the pool proportionally.
 — the odds aren't fixed in advance, they're determined by how people bet.
-So bet on your team = Change the odds.
 ````
 ````
 The pool — when a match starts, all 20 teams go into the pool and betting is closed.
-Other bettors have already placed money on there team. The more a team is favored by the crowd, the lower the odds — because more people are splitting the same payout pool.
+Other bettors have already placed money on there team. The more a team is favored by the crowd, the lower the odds —
+because more people are splitting the same payout pool.
 
 Your payout — if your team wins, you get back (your bet / all bets on that team) × payout pool.
 A team with fewer bets on them pays out much more if they pull off the upset.
