@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-apex-red: #DA292A;
+  --color-apex-red-dark: #B91C1C;
+  --color-apex-dark: #0F0F0F;
+  --color-apex-gray: #1A1A1A;
+  --color-apex-gray-light: #2A2A2A;
+  --color-apex-accent: #FF4655;
+  --color-apex-gold: #C8A96E;
+  --color-apex-gold-light: #E8C88E;
+  --color-apex-text: #F5F5F5;
+  --color-apex-text-muted: #A0A0A0;
+  --color-apex-border: #333333;
+
+  --font-apex: 'Rajdhani', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+:root {
+  --background: #0F0F0F;
+  --foreground: #F5F5F5;
+  --card: #1A1A1A;
+  --card-foreground: #F5F5F5;
+  --popover: #1A1A1A;
+  --popover-foreground: #F5F5F5;
+  --primary: #DA292A;
+  --primary-foreground: #FFFFFF;
+  --secondary: #2A2A2A;
+  --secondary-foreground: #F5F5F5;
+  --muted: #2A2A2A;
+  --muted-foreground: #A0A0A0;
+  --accent: #FF4655;
+  --accent-foreground: #FFFFFF;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #333333;
+  --input: #2A2A2A;
+  --ring: #DA292A;
+  --radius: 0.5rem;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-apex);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--apex-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--apex-red);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--apex-red-dark);
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--apex-red);
+  color: white;
+}
+
+/* Animations */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(218, 41, 42, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(218, 41, 42, 0.6); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes slide-in {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+/* PWA install prompt */
+.pwa-install-prompt {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--apex-gray);
+  border: 1px solid var(--apex-red);
+  border-radius: var(--radius);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 50;
+  animation: slide-in 0.3s ease-out;
+}
