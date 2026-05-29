@@ -4,6 +4,10 @@
 **V0.3.0 MVP**
 **Built By: Apex Multi Tools**
 ---
+---
+** - # PLEASE NOTE WE ARE STIL IN HEAVY Development # - **
+---
+
 
 **Apex Multi Tools: Apex Virtual Betting Platform**
 
@@ -12,8 +16,9 @@ Virtual Currency betting platform for Esport only.
 We are still in Beta Development, Beta is limited to only Apex Legends Esports,
 and all its Tournaments! 
 Future Version will offer betting on ALL Major Esports!
-
 Beta will be open for Apex Pro League & Upcomming EWC Lan.
+
+---
 
 Apex Betting has all the same functions as major "real" betting sites, Like Live realtime odds, 
 Player & Teams data, Fast payout & Discussion forum where you can argue with other nerds about what the best team is.
