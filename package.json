@@ -1,0 +1,22 @@
+{
+  "name": "apex-betting-pwa",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "docker-compose up",
+    "dev:build": "docker-compose up --build",
+    "db:migrate": "docker-compose exec api npm run migrate",
+    "db:seed": "docker-compose exec api npm run seed",
+    "db:reset": "docker-compose down -v && docker-compose up --build",
+    "api:logs": "docker-compose logs -f api",
+    "web:logs": "docker-compose logs -f web",
+    "test": "docker-compose exec api npm test"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

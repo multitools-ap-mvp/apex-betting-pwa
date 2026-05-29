@@ -1,1 +1,87 @@
-# Local dev: Postgres + Redis
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: apex-postgres
+    environment:
+      POSTGRES_USER: apexuser
+      POSTGRES_PASSWORD: apexpass
+      POSTGRES_DB: apex_betting_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./apps/api/migrations:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U apexuser -d apex_betting_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Redis (Caching + BullMQ Queue)
+  redis:
+    image: redis:7-alpine
+    container_name: apex-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  # Backend API
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile.dev
+    container_name: apex-api
+    environment:
+      NODE_ENV: development
+      PORT: 3001
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: apex_betting_db
+      DB_USER: apexuser
+      DB_PASSWORD: apexpass
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: apex_jwt_super_secret_key_change_in_production
+      JWT_EXPIRES_IN: 7d
+      ADMIN_USERNAME: Apex
+      ADMIN_PASSWORD_HASH: $2b$10$YourHashedPasswordHere  # We'll seed this properly
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./apps/api:/app
+      - /app/node_modules
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    command: sh -c "npm run migrate && npm run dev"
+
+  # Frontend Web App
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile.dev
+    container_name: apex-web
+    environment:
+      VITE_API_URL: http://localhost:3001
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./apps/web:/app
+      - /app/node_modules
+    depends_on:
+      - api
+    command: npm run dev
+
+volumes:
+  postgres_data:
+  redis_data:
