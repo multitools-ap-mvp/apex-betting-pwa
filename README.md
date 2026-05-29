@@ -16,7 +16,7 @@ Virtual Currency betting platform for Esport only.
 We are still in Beta Development, Beta is limited to only Apex Legends Esports,
 and all its Tournaments! 
 Future Version will offer betting on ALL Major Esports!
-Beta will be open for Apex Pro League & Upcomming EWC Lan.
+Betting will be open for Apex Pro League & Upcomming EWC Lan.
 
 ---
 
